@@ -13,7 +13,7 @@ using MachineActivityMonitor;
 namespace MsnMon
 {
 
-    public partial class Form1 : Form
+    public partial class FormComputerMon : Form
     {
         Settings settings;
         Profiles pf = new Profiles();
@@ -66,7 +66,7 @@ namespace MsnMon
             return IdleTicks / 1000;
         }
 
-        public Form1(Settings st)
+        public FormComputerMon(Settings st)
         {
             settings = st;
             InitializeComponent();
@@ -132,7 +132,7 @@ namespace MsnMon
 
         }
 
-        private void Form1_Shown(object sender, EventArgs e)
+        private void FormComputerMon_Shown(object sender, EventArgs e)
         {
             this.Hide();
             this.timer1.Interval = INTERVAL * 1000;

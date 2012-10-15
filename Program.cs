@@ -11,9 +11,9 @@ namespace MsnMon
     {
         static bool isStarted()
         {
-            var c = ProcessMon.GetAllProcess(
+            var c = ProcessUtils.GetAllProcess(
                 p => p.ProcessName == "TsyUpdate" &&
-                    p.MainWindowTitle == "Form1").Count();
+                    p.MainWindowTitle == "FormComputerMon").Count();
             return (c > 1);
         }
 
@@ -32,7 +32,7 @@ namespace MsnMon
                 st = new XPSetting();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(st));
+            Application.Run(new FormComputerMon(st));
         }
     }
 }

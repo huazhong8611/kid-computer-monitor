@@ -1,6 +1,6 @@
 ﻿namespace MsnMon
 {
-    partial class Form1
+    partial class FormComputerMon
     {
         /// <summary>
         /// Required designer variable.
@@ -78,7 +78,7 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // Form1
+            // FormComputerMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -86,9 +86,9 @@
             this.Controls.Add(this.List);
             this.Controls.Add(this.listViewUrls);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.Name = "FormComputerMon";
+            this.Text = "FormComputerMon";
+            this.Shown += new System.EventHandler(this.FormComputerMon_Shown);
             this.ResumeLayout(false);
 
         }

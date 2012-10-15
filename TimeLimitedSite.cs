@@ -14,7 +14,7 @@ namespace MachineActivityMonitor
         abstract public void SetData(string s);
     }
 
-    class TimeLimit
+    class DailyTimeLimit
     {
         const int blockAfterLimitReach = 10;
         readonly int limitInSeconds;
@@ -26,7 +26,7 @@ namespace MachineActivityMonitor
         public int usage{get;set;}
         public int contUsage { get; set; }
 
-        public TimeLimit(int maxInSeconds, int contInSeconds)
+        public DailyTimeLimit(int maxInSeconds, int contInSeconds)
         {
             limitInSeconds = maxInSeconds;
             contLimitInSeconds = contUsage;
@@ -100,11 +100,11 @@ namespace MachineActivityMonitor
         const int SiteContinuousWeekendDailyLimitInSeconds = 3600;// 1 hour
         Dictionary<Uri, int> SiteUsage = new Dictionary<Uri, int>();
         String currentSiteHost;
-        TimeLimit limit;
+        DailyTimeLimit limit;
         int othesiteGameTime;
         public SiteContinuesTimeLimit()
         {
-            this.limit = new TimeLimit(SiteContinuousTimeLimitInSeconds, int.MaxValue);
+            this.limit = new DailyTimeLimit(SiteContinuousTimeLimitInSeconds, int.MaxValue);
             this.othesiteGameTime = 0;
         }
 
@@ -178,9 +178,9 @@ namespace MachineActivityMonitor
     }
     class WeekendOnlySite : Filter 
     {
-        TimeLimit limit;
+        DailyTimeLimit limit;
         string siteKey;
-        public WeekendOnlySite(string siteKey, TimeLimit limit)
+        public WeekendOnlySite(string siteKey, DailyTimeLimit limit)
         {
             this.siteKey = siteKey;
             this.limit = limit;
@@ -230,10 +230,10 @@ namespace MachineActivityMonitor
     class TimeLimitedSite :Filter
     {
         string[] siteKeys;
-        TimeLimit limit;
+        DailyTimeLimit limit;
         public TimeLimitedSite(string[] siteKeys, int limitInSeconds, int contLimitInSeconds)
         {
-            limit = new TimeLimit(limitInSeconds, contLimitInSeconds);
+            limit = new DailyTimeLimit(limitInSeconds, contLimitInSeconds);
             this.siteKeys = siteKeys;
         }
 

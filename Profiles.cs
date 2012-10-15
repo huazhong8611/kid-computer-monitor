@@ -31,21 +31,14 @@ namespace MachineActivityMonitor
         DateTime lastCheckedDate = DateTime.MinValue;
         List<Filter> filters = new List<Filter>();
         const long IELimit = 60 * 60 * 3;
-        string[] disabledKeyword = { "mangareader","game", "bloontower"
-                                       /*
-                                     "ageofchampions", "angrybird",
-                                   "uberstrike", "backyardmonster", 
-                                   "socialempires", "ninjakiwi", 
-                                   "ninja-warz", "klinknation", 
-                                   "Bloons Tower", "apps.facebook",
-                                   "armorgames", "serebii.net"*/};
+        string[] disabledKeyword = { 
+                                       "mangareader",
+                                       "game", 
+                                       "bloontower"
+                                      };
         public Profiles()
         {
 
-            //filters.Add(new SiteContinuesTimeLimit());
-            //TimeLimit limit = new TimeLimit(2400, 720);
- //           foreach (string s in disabledKeyword)
- //               filters.Add(new WeekendOnlySite(s, limit));
             filters.Add(new TimeLimitedSite( new string[] {
                 "facebook", 
                 "youtube", 
@@ -113,7 +106,7 @@ namespace MachineActivityMonitor
                 if (b)
                     return true;
             }
-            ProcessMon.CloseProcess(p => p.ProcessName.StartsWith("Safari"));
+            ProcessUtils.CloseProcess(p => p.ProcessName.StartsWith("Safari"));
             return false;
         }
         public virtual long browserLimit()

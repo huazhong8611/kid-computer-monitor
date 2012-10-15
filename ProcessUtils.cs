@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace MachineActivityMonitor
 {
-    class ProcessMon
+    class ProcessUtils
     {
         public static IEnumerable<Process> GetAllProcess(Predicate<Process> pred)
         {
